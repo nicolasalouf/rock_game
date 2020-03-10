@@ -12,25 +12,54 @@
         }
         
         function playRound() {
+            let playerSelection = prompt("Input your Selection");
+            let computerSelection = computerPlay();
             switch(true){
                 case playerSelection === "Rock" && computerSelection === "Paper":
                 case playerSelection === "Paper" && computerSelection === "Scissors":
                 case playerSelection === "Scissors" && computerSelection === "Rock":
+                    computerScore += 1;
                     return "Computer picks " + computerSelection + ". " + computerSelection + " beats " + playerSelection + ". You lose!";
                     break;
                 case playerSelection === "Rock" && computerSelection === "Scissors":
                 case playerSelection === "Scissors" && computerSelection === "Paper":
                 case playerSelection === "Paper" && computerSelection === "Rock":
+                    playerScore +=1;
                     return "Computer picks " + computerSelection + ". " + playerSelection + " beats " + computerSelection + ". You win!";
                     break;
                 default:
                     return "Computer picks " + computerSelection + ". It's a tie!";
+                    return "Your score: " + playerScore + ". Computer score: " + computerScore;
                     break;
             }
         }
-        const playerSelection = prompt("Input your selection");
-        const computerSelection = computerPlay();
-        console.log(playRound())
+
+        function finalScore() {
+            switch (true) {
+                case playerScore < computerScore:
+                    return "You Lose!";
+                    break;
+                case playerScore > computerScore:
+                    return "You Win!";
+                    break;
+                default:
+                    return "It's a tie!";
+                    break;    
+            }
+        }
+
+        function game() {
+            console.log(playRound());
+            console.log(playRound());
+            console.log(playRound());
+            console.log(playRound());
+            console.log(playRound());
+            return "Your score: " + playerScore + ". Computer score: " + computerScore + ". " + finalScore();
+        }
+
+        let playerScore = 0
+        let computerScore = 0
+        console.log(game());
     </script>
 </body>
 </html>
