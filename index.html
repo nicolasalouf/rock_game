@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <title>Rock Paper Scissors Game</title>
     <meta charset="utf-8">
@@ -9,13 +10,27 @@
             let array = ["Rock","Paper","Scissors"];
             return array[Math.floor(Math.random()*3)]
         }
-        function playRound(playerSelection,computerSelection) {
-            if (playerSelection === computerSelection) {
-                return "It's a tie!"
+        
+        function playRound() {
+            switch(true){
+                case playerSelection === "Rock" && computerSelection === "Paper":
+                case playerSelection === "Paper" && computerSelection === "Scissors":
+                case playerSelection === "Scissors" && computerSelection === "Rock":
+                    return "Computer picks " + computerSelection + ". " + computerSelection + " beats " + playerSelection + ". You lose!";
+                    break;
+                case playerSelection === "Rock" && computerSelection === "Scissors":
+                case playerSelection === "Scissors" && computerSelection === "Paper":
+                case playerSelection === "Paper" && computerSelection === "Rock":
+                    return "Computer picks " + computerSelection + ". " + playerSelection + " beats " + computerSelection + ". You win!";
+                    break;
+                default:
+                    return "Computer picks " + computerSelection + ". It's a tie!";
+                    break;
             }
         }
-        const playerSelection = prompt("Input your selection")
-        const computerSelection = computerPlay()
-        console.log(playRound)
+        const playerSelection = prompt("Input your selection");
+        const computerSelection = computerPlay();
+        console.log(playRound())
     </script>
 </body>
+</html>
