@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <title>Rock Paper Scissors Game</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            let array = ["Rock","Paper","Scissors"];
+            return array[Math.floor(Math.random()*3)]
+        }
+        function playRound(playerSelection,computerSelection) {
+            if (playerSelection === computerSelection) {
+                return "It's a tie!"
+            }
+        }
+        const playerSelection = prompt("Input your selection")
+        const computerSelection = computerPlay()
+        console.log(playRound)
+    </script>
+</body>
