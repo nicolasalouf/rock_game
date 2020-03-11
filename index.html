@@ -11,8 +11,13 @@
             return array[Math.floor(Math.random()*3)]
         }
         
+        function playerPick() {
+            pick = prompt("Input you Selection");
+            return pick.charAt(0).toUpperCase() + pick.slice(1).toLowerCase();
+        }
+
         function playRound() {
-            let playerSelection = prompt("Input your Selection");
+            let playerSelection = playerPick();
             let computerSelection = computerPlay();
             switch(true){
                 case playerSelection === "Rock" && computerSelection === "Paper":
